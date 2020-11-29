@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="top">
+            <div class="budget">
+                <h1>BALANCE</h1>
+                <h2 class="balance">0.00</h2>
+                <div class="budget__box budget__box--income">
+                    <p class="income__text">income</p>
+                    <p class="income__label">0</p>
+                </div>
+                <div class="budget__box budget__box--expense">
+                    <p class="expense__text">expense</p>
+                    <p class="expense__label">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="form__input">
+                <select class="add__type">
+                    <option value="income" selected>+</option>
+                    <option value="expense">-</option>
+                </select>
+                <input type="text" class="add__description" placeholder="Add description">
+                <input type="number" class="add__value" min="0" max="9999999" placeholder="Add value">
+                <button class="add__btn">SUBMIT</button>
+            </div>
+
+
+            <input type="date" id="start" class="get__date" min="2019-01-01" max="2020-12-31" value="2020-05-05">
+
+            <section class="output__area">
+                <div class="income__section">
+                    <h3 class="income__title">INCOME</h3>
+                    <div class="income__element"></div>
+                    <!-- <div class="income">
+                        <div class="description">salary</div>
+                        <div class="value">1999</div>
+                        <span>x</span>
+                    </div>
+                    <div class="income">
+                        <div class="description">project</div>
+                        <div class="value">5000</div>
+                        <span>x</span>
+                    </div>
+                    <div class="income">
+                        <div class="description">mom</div>
+                        <div class="value">200</div>
+                        <span>x</span>
+                    </div> -->
+                </div>
+
+                <div class="expense__section">
+                    <h3 class="expense__title">EXPENSE</h3>
+                    <div class="expense__element"></div>
+                    <!-- <div class="expense">
+                        <div class="description">holiday</div>
+                        <div class="value">5000</div>
+                        <span>x</span>
+                    </div> -->
+                </div>
+            </section>
+
+    </section>
+    </div>
+
+
+    <script src="js/index.js"></script>
+
+
+</body>
+
+</html>
