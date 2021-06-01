@@ -21,6 +21,8 @@ const views = (function () {
         reletive: document.querySelector(".relative"),
         reletiveIncome: document.querySelector(".relative__income"),
         reletiveExpense: document.querySelector(".reletive__expense"),
+
+        alert: document.querySelector(".alert"),
     };
 
     return {
@@ -91,10 +93,10 @@ const models = (function () {
     let data = new Map();
     console.log("MODELS, DATA HAS UPDATE...");
 
-    async function postApi(curData,year) {
+    async function postApi(curData, year) {
         // POST API
         console.log("MODELS ,POSTING API...");
-        console.log(curData)
+        console.log(curData);
         try {
             const mapData = curData.get(year);
             const n = [];
@@ -115,14 +117,14 @@ const models = (function () {
                 },
                 body: JSON.stringify({
                     id: year,
-                    months: [...n]
+                    months: [...n],
                 }),
             });
         } catch (err) {
             console.log("Error 404 API NOT FOUND", err);
-        } 
+        }
     }
-    
+
     function pushFakeData(year) {
         console.log("MODELS, PUSHING FAKE DATA...");
         let monthsData = new Map();
@@ -137,7 +139,7 @@ const models = (function () {
             monthsData.set(i, newData);
         }
         data.set(year, monthsData);
-        postApi(data, year)
+        postApi(data, year);
     }
 
     async function pushToData(api, year) {
@@ -178,7 +180,7 @@ const models = (function () {
     return {
         addItem(type, des, value, date) {
             // date = array [year, month, day]
-            console.log("ADD NEW ITEM")
+            console.log("ADD NEW ITEM");
             const budg = new Budget(type, des, value, date.join("-"));
             const curData = data.get(date[0]).get(date[1]);
             curData[type].set(calcID(curData), budg);
@@ -200,12 +202,13 @@ const models = (function () {
                     .catch((reject) => {
                         // if api have no data of the year this function gonna create fake data store in memory
                         if (reject === 404) {
-                            pushFakeData(year)
+                            pushFakeData(year);
                         }
                         throw reject;
                     });
             } catch (err) {
                 console.log("Error 404 API NOT FOUND", err);
+                if (err.toString() === "TypeError: Failed to fetch") return data = "no server";
             } finally {
                 return data;
             }
@@ -232,7 +235,7 @@ const models = (function () {
                     },
                     body: JSON.stringify({
                         id: year,
-                        months: [...n]
+                        months: [...n],
                     }),
                 });
             } catch (err) {
@@ -374,8 +377,10 @@ const controller = (function (model, UI) {
             // PUT API DATA TO MAP DATA
             // UPDATE TOTAL DATA
             const wholeData = await model.fetchFn(curYear);
+
+            // Check json-server
+            if (wholeData === 'no server') UI.elem.alert.style.display = 'block'
             const curData = wholeData.get(curYear).get(curMonth);
-            // console.log(curData)
 
             model.calcTotal(curData, "income");
             model.calcTotal(curData, "expense");
