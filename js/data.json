@@ -1,229 +1,365 @@
 {
-  "2019": [
+  "years": [
     {
-      "id": 1,
-      "month": "january",
-      "income": [],
-      "expense": [],
-      "balance": 0
-    },
-    {
-      "id": 2,
-      "month": "february",
-      "income": [],
-      "expense": [],
-      "balance": 0
-    },
-    {
-      "id": 3,
-      "month": "march",
-      "income": [],
-      "expense": [],
-      "balance": 0
-    }
-  ],
-  "2020": [
-    {
-      "id": 11,
-      "income": [
+      "id": 2019,
+      "months": [
         {
-          "type": "income",
-          "description": "c",
-          "value": 10000000,
-          "date": "2020-11-28"
+          "id": 1,
+          "month": "january",
+          "income": [],
+          "expense": [],
+          "balance": 0
         },
         {
-          "type": "income",
-          "description": "x",
-          "value": 1000000.14,
-          "date": "2020-11-28"
+          "id": 2,
+          "month": "february",
+          "income": [],
+          "expense": [],
+          "balance": 0
         },
         {
-          "type": "income",
-          "description": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
-          "value": 1000000,
-          "date": "2020-11-28"
-        },
-        {
-          "type": "income",
-          "description": "x",
-          "value": 9999,
-          "date": "2020-11-28"
+          "id": 3,
+          "month": "march",
+          "income": [],
+          "expense": [],
+          "balance": 0
         }
-      ],
-      "expense": [
+      ]
+    },
+    {
+      "id": 2020,
+      "months": [
         {
-          "type": "expense",
-          "description": "d",
-          "value": 1000,
-          "date": "2020-11-27"
+          "id": 11,
+          "income": [
+            {
+              "type": "income",
+              "description": "c",
+              "value": 10000000,
+              "date": "2020-11-28"
+            },
+            {
+              "type": "income",
+              "description": "x",
+              "value": 1000000.14,
+              "date": "2020-11-28"
+            },
+            {
+              "type": "income",
+              "description": "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+              "value": 1000000,
+              "date": "2020-11-28"
+            },
+            {
+              "type": "income",
+              "description": "x",
+              "value": 9999,
+              "date": "2020-11-28"
+            }
+          ],
+          "expense": [
+            {
+              "type": "expense",
+              "description": "d",
+              "value": 1000,
+              "date": "2020-11-27"
+            },
+            {
+              "type": "expense",
+              "description": "x",
+              "value": 900,
+              "date": "2020-11-27"
+            },
+            {
+              "type": "expense",
+              "description": "x",
+              "value": 100,
+              "date": "2020-11-1"
+            },
+            {
+              "type": "expense",
+              "description": "d",
+              "value": 4000,
+              "date": "2020-11-28"
+            }
+          ],
+          "incomeTotal": 12009999.14,
+          "expenseTotal": 6000,
+          "balance": 12003999.14
         },
         {
-          "type": "expense",
-          "description": "d",
-          "value": 2000,
-          "date": "2020-11-27"
+          "id": 1,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
         },
         {
-          "type": "expense",
-          "description": "x",
-          "value": 900,
-          "date": "2020-11-27"
+          "id": 2,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
         },
         {
-          "type": "expense",
-          "description": "x",
-          "value": 100,
-          "date": "2020-11-1"
+          "id": 3,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
         },
         {
-          "type": "expense",
-          "description": "d",
-          "value": 4000,
-          "date": "2020-11-28"
+          "id": 4,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 5,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 6,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 7,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 8,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 9,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 10,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 12,
+          "income": [
+            {
+              "type": "income",
+              "description": "d",
+              "value": 1000,
+              "date": "2020-12-27"
+            },
+            {
+              "type": "income",
+              "description": "d",
+              "value": 2000,
+              "date": "2020-12-27"
+            },
+            {
+              "type": "income",
+              "description": "z",
+              "value": 1000,
+              "date": "2020-12-27"
+            }
+          ],
+          "expense": [
+            {
+              "type": "expense",
+              "description": "x",
+              "value": 2000,
+              "date": "2020-12-27"
+            },
+            {
+              "type": "expense",
+              "description": "asddasc",
+              "value": 500,
+              "date": "2020-12-27"
+            },
+            {
+              "type": "expense",
+              "description": "c",
+              "value": 300,
+              "date": "2020-12-27"
+            }
+          ],
+          "incomeTotal": 4000,
+          "expenseTotal": 2800,
+          "balance": 1200
         }
-      ],
-      "incomeTotal": 12009999.14,
-      "expenseTotal": 8000,
-      "balance": 12001999.14
+      ]
     },
     {
-      "id": 1,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 2,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 3,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 4,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 5,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 6,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 7,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 8,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 9,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 10,
-      "income": [],
-      "expense": [],
-      "incomeTotal": 0,
-      "expenseTotal": 0,
-      "balance": 0
-    },
-    {
-      "id": 12,
-      "income": [
+      "id": 2021,
+      "months": [
         {
-          "type": "income",
-          "description": "d",
-          "value": 1000,
-          "date": "2020-12-27"
+          "id": 1,
+          "income": [
+            {
+              "type": "income",
+              "description": "test 2021",
+              "value": 2021,
+              "date": "2021-1-1"
+            },
+            {
+              "type": "income",
+              "description": "x",
+              "value": 2021,
+              "date": "2021-1-1"
+            }
+          ],
+          "expense": [],
+          "incomeTotal": 4042,
+          "expenseTotal": 0,
+          "balance": 4042
         },
         {
-          "type": "income",
-          "description": "d",
-          "value": 2000,
-          "date": "2020-12-27"
+          "id": 2,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
         },
         {
-          "type": "income",
-          "description": "z",
-          "value": 1000,
-          "date": "2020-12-27"
+          "id": 3,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
         },
         {
-          "type": "income",
-          "description": "d",
-          "value": 100,
-          "date": "2020-12-27"
+          "id": 4,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 5,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 6,
+          "income": [
+            {
+              "type": "income",
+              "description": "xxx",
+              "value": 2021,
+              "date": "2021-6-1"
+            },
+            {
+              "type": "income",
+              "description": "test",
+              "value": 111,
+              "date": "2021-6-1"
+            },
+            {
+              "type": "income",
+              "description": "10",
+              "value": 10,
+              "date": "2021-6-1"
+            },
+            {
+              "type": "income",
+              "description": "t",
+              "value": 999,
+              "date": "2021-6-1"
+            }
+          ],
+          "expense": [
+            {
+              "type": "expense",
+              "description": "2000",
+              "value": 2000,
+              "date": "2021-6-1"
+            }
+          ],
+          "incomeTotal": 3141,
+          "expenseTotal": 2000,
+          "balance": 1141
+        },
+        {
+          "id": 7,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 8,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 9,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 10,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 11,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
+        },
+        {
+          "id": 12,
+          "income": [],
+          "expense": [],
+          "incomeTotal": 0,
+          "expenseTotal": 0,
+          "balance": 0
         }
-      ],
-      "expense": [
-        {
-          "type": "expense",
-          "description": "x",
-          "value": 2000,
-          "date": "2020-12-27"
-        },
-        {
-          "type": "expense",
-          "description": "asddasc",
-          "value": 500,
-          "date": "2020-12-27"
-        },
-        {
-          "type": "expense",
-          "description": "c",
-          "value": 300,
-          "date": "2020-12-27"
-        },
-        {
-          "type": "expense",
-          "description": "z",
-          "value": 1000,
-          "date": "2020-12-27"
-        }
-      ],
-      "incomeTotal": 4100,
-      "expenseTotal": 3800,
-      "balance": 300
+      ]
     }
   ]
 }

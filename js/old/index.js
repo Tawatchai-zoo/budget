@@ -72,6 +72,7 @@ const views = (function () {
             elem.expenseTotal.textContent = "-" + data.expenseTotal.toLocaleString();
             elem.totalBudget.textContent = balance;
             console.log("views, UPDATE TOTAL UI...");
+            console.log(data.expenseTotal.toLocaleString())
         },
         elem: elem,
     };
@@ -91,40 +92,7 @@ const models = (function () {
     let data = new Map();
     console.log("MODELS, DATA HAS UPDATE...");
 
-    async function postApi(curData,year) {
-        // POST API
-        console.log("MODELS ,POSTING API...");
-        console.log(curData)
-        try {
-            const mapData = curData.get(year);
-            const n = [];
-            for (const [key, value] of mapData) {
-                n.push({
-                    id: key,
-                    income: [...value.income.values()],
-                    expense: [...value.expense.values()],
-                    incomeTotal: value.incomeTotal,
-                    expenseTotal: value.expenseTotal,
-                    balance: value.balance,
-                });
-            }
-            await fetch(`http://localhost:3004/years`, {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    id: year,
-                    months: [...n]
-                }),
-            });
-        } catch (err) {
-            console.log("Error 404 API NOT FOUND", err);
-        } 
-    }
-    
     function pushFakeData(year) {
-        console.log("MODELS, PUSHING FAKE DATA...");
         let monthsData = new Map();
         for (i = 1; i <= 12; i++) {
             let newData = {
@@ -137,7 +105,7 @@ const models = (function () {
             monthsData.set(i, newData);
         }
         data.set(year, monthsData);
-        postApi(data, year)
+        console.log("`MODELS, PUSHING FAKE DATA...`");
     }
 
     async function pushToData(api, year) {
@@ -178,8 +146,8 @@ const models = (function () {
     return {
         addItem(type, des, value, date) {
             // date = array [year, month, day]
-            console.log("ADD NEW ITEM")
             const budg = new Budget(type, des, value, date.join("-"));
+
             const curData = data.get(date[0]).get(date[1]);
             curData[type].set(calcID(curData), budg);
 
@@ -189,19 +157,17 @@ const models = (function () {
             // GET API
             console.log("MODELS ,FETCHING API...");
             try {
-                return await fetch(`http://localhost:3004/years/${year}`)
+                return await fetch(`http://localhost:3004/${year}`)
                     .then((rows) => {
                         if (rows.status === 404) throw rows.status;
                         return rows.json();
                     })
                     .then((res) => {
-                        pushToData(res.months, year);
+                        pushToData(res, year);
                     })
                     .catch((reject) => {
                         // if api have no data of the year this function gonna create fake data store in memory
-                        if (reject === 404) {
-                            pushFakeData(year)
-                        }
+                        pushFakeData(year);
                         throw reject;
                     });
             } catch (err) {
@@ -210,29 +176,22 @@ const models = (function () {
                 return data;
             }
         },
-        async putApi(curData, year) {
-            console.log("MODELS ,PUTING API...");
+        async putApi(curData, year, month) {
+            console.log('putting',curData, year, month)
+            console.log("MODELS ,PUTING...");
             try {
-                const mapData = curData.get(year);
-                const n = [];
-                for (const [key, value] of mapData) {
-                    n.push({
-                        id: key,
-                        income: [...value.income.values()],
-                        expense: [...value.expense.values()],
-                        incomeTotal: value.incomeTotal,
-                        expenseTotal: value.expenseTotal,
-                        balance: value.balance,
-                    });
-                }
-                await fetch(`http://localhost:3004/years/${year}`, {
+                await fetch(`http://localhost:3004/${year}/${month}`, {
                     method: "put",
                     headers: {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        id: year,
-                        months: [...n]
+                        id: month,
+                        income: [...curData.income.values()],
+                        expense: [...curData.expense.values()],
+                        incomeTotal: curData.incomeTotal,
+                        expenseTotal: curData.expenseTotal,
+                        balance: curData.balance,
                     }),
                 });
             } catch (err) {
@@ -268,7 +227,7 @@ const controller = (function (model, UI) {
         UI.elem.inputDes.focus();
         UI.clearHTML();
 
-        if (!data) return;
+        if(!data) return;
         UI.createHTML(data);
         UI.updateTotal(data);
     }
@@ -292,8 +251,7 @@ const controller = (function (model, UI) {
 
             setupUI(curData);
 
-            // model.putApi(curData, date[0], date[1]);
-            model.putApi(model.data, date[0]);
+            model.putApi(curData, date[0], date[1]);
         }
     };
 
@@ -333,7 +291,8 @@ const controller = (function (model, UI) {
     // Delete API
     UI.elem.outputArea.addEventListener("click", (e) => {
         if (e.target.matches(".del__btn")) {
-            const [year] = UI.elem.date.value.split("-").map((n) => Number(n));
+            const [year, month] = UI.elem.date.value.split("-").map((n) => Number(n));
+            const curData = model.data.get(year).get(month);
 
             // delete from UI
             let getType = e.target.parentElement.className;
@@ -346,17 +305,17 @@ const controller = (function (model, UI) {
             model.calcTotal(curData, getType);
 
             // Delete from api
-            model.putApi(model.data, year);
+            model.putApi(curData, year, month);
 
             setupUI(curData);
         }
     });
 
     const dateToStr = (...date) => {
-        const strDate = date.map((d) => {
+        const strDate = date.map(d => {
             if (d < 10) return "0" + d;
             return d;
-        });
+        })
         return strDate.join("-").toString();
     };
 
@@ -368,7 +327,7 @@ const controller = (function (model, UI) {
                 new Date().getDate(),
             ];
             // SET CURRENT DATE TO DATE INPUT
-            UI.elem.date.value = dateToStr(curYear, curMonth, curDay);
+            UI.elem.date.value = dateToStr(curYear,curMonth,curDay)
 
             // FETCH API DATA
             // PUT API DATA TO MAP DATA
@@ -383,6 +342,7 @@ const controller = (function (model, UI) {
             setupUI(curData);
 
             console.log("CONTROLLER, init FUNCTION HAS UPDATE...");
+
         },
     };
 })(models, views);
